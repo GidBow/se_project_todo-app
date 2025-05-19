@@ -38,18 +38,15 @@ class Todo {
 
       this._todoDate.textContent = "";
     }
-    return this._todoDate;
   }
 
   _todoNameEl() {
     this._todoName = this._todoElement.querySelector(".todo__name");
     this._todoName.textContent = this._data.name;
-    return this._todoName;
   }
 
   _todoDeleteEl() {
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-    return this._todoDeleteBtn;
   }
 
   getView() {
