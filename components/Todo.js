@@ -11,6 +11,7 @@ class Todo {
 
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      this._todoElement = null;
     });
   }
 
@@ -22,7 +23,7 @@ class Todo {
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
-  _todoDateEl() {
+  _generateDateEl() {
     this._todoDate = this._todoElement.querySelector(".todo__date");
     const dueDate = new Date(this._data.date);
     if (!isNaN(dueDate)) {
@@ -40,12 +41,12 @@ class Todo {
     }
   }
 
-  _todoNameEl() {
+  _generateNameEl() {
     this._todoName = this._todoElement.querySelector(".todo__name");
     this._todoName.textContent = this._data.name;
   }
 
-  _todoDeleteEl() {
+  _generateDeleteEl() {
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
   }
 
@@ -53,11 +54,11 @@ class Todo {
     this._todoElement =
       this._templateElement.content.firstElementChild.cloneNode(true);
 
-    this._generateCheckboxEl();
-    this._todoDateEl();
-    this._todoDeleteEl();
-    this._todoNameEl();
     this._setEventListeners();
+    this._generateCheckboxEl();
+    this._generateDateEl();
+    this._generateNameEl();
+    this._generateDeleteEl();
 
     return this._todoElement;
   }
