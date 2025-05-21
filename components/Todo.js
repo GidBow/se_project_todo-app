@@ -54,11 +54,11 @@ class Todo {
     this._todoElement =
       this._templateElement.content.firstElementChild.cloneNode(true);
 
-    this._setEventListeners();
     this._generateCheckboxEl();
     this._generateDateEl();
     this._generateNameEl();
     this._generateDeleteEl();
+    this._setEventListeners();
 
     return this._todoElement;
   }
