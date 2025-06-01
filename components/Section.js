@@ -15,11 +15,10 @@ class Section {
     this._container.append(item);
   }
 
-  clear() {
+  _clear() {
     this._container.innerHTML = "";
   }
   setItems(items) {
-    this._items = items;
     this.clear();
     this.renderItems();
   }
